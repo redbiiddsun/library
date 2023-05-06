@@ -24,25 +24,24 @@ export default function getMember(req, res){
       }
 
     const postMethod = () => {
-      const {firstname, midname, lastname, ID, DOB, phone, email, addresses1, addresses2, city, postcode, country} = req.body;
+      const {firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country} = req.body;
       
       connection.query(`INSERT INTO member (member_id, member_created, member_fname, member_mname, member_lname, member_personalID, member_DOB, member_phone, member_email, member_addresses_1, member_addresses_2, member_city, member_postcode, member_country)VALUES (NULL, current_timestamp(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [firstname, midname, lastname, ID, DOB, phone, email, addresses1, addresses2, city, postcode, country],
+        [firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country],
         (err, results, fields) =>{
           if(err){
             console.log("Error while inserting", err);
             return res.status(400).send(err);
           }
-          return res.status(201).json({message: "New user successfuly created!"})
+          return res.status(201).json({message: "New member successfuly created!", memberID: results.insertId})
       })
     }
 
-    switch(req.method){
-        case 'GET':
-            getMethod();
-        case 'POST':
-            postMethod();
-    }
+  if (req.method === 'POST') {
+    postMethod();
+  } else {
+    getMethod();
+  }
 
 }
 
