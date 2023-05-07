@@ -17,11 +17,11 @@ export default function getMember(req, res){
 
         if(err){
           console.log(err)
-          return res.status(400).send({name: "req.query.id"});
+          return res.status(400).send({Error: err});
         }
           return res.status(200).json(results)
         })
-      }
+    }
 
     const postMethod = () => {
       const {firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country} = req.body;
