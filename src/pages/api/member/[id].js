@@ -13,7 +13,7 @@ export default function getMemberById(req, res){
     // GET Member with MemberID 
     const getMethod = () => {
         connection.query("SELECT * FROM member WHERE member_id = ?", [req.query.id],
-        (err, results, fields) =>{
+        (err, results, fields) =>{ 
 
             if(results.length != 0 && !err){
                 return res.status(200).json(results);
