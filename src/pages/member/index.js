@@ -1,11 +1,13 @@
 import Head from "next/head";
 import { Outfit } from "next/font/google";
+import Navbar from "../components/navbar";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
 function MemberPage() {
   return (
     <>
+
       <Head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,51 +22,12 @@ function MemberPage() {
         <title>Library Management System</title>
       </Head>
       <main>
+        <Navbar/>
         <header class="greeting">
           <span class="grtname">Hello, John K.</span>
           <br />
           <span class="date">Sunday, 2 June 2023 | 12:12 </span>
         </header>
-        <div class="box">
-          <div class="Logo">
-            <img src="img/LMS__3_-removebg-preview 1.png" alt="" />
-            <span>Library Management System</span>
-          </div>
-          <div class="sidebar">
-            <ul>
-              <li>
-                <a href="index.html">
-                  <img src="img/HouseLine.png" alt="" />
-                  <span> Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="member.html">
-                  <img src="img/UsersThree.png" alt="" />
-                  <span> Members</span>
-                </a>
-              </li>
-              <li>
-                <a href="staff.html">
-                  <img src="img/UserCircleGear.png" alt="" />
-                  <span> Staff</span>
-                </a>
-              </li>
-              <li>
-                <a href="book.html">
-                  <img src="img/Books.png" alt="" />
-                  <span> Book</span>
-                </a>
-              </li>
-              <li>
-                <a href="payment.html">
-                  <img src="img/CurrencyCircleDollar.png" alt="" />
-                  <span> Payment</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
       </main>
     </>
   );
