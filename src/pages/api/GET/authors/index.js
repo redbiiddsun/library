@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
 
-export default function getStaffyId(req, res){
+export default function getAuthor(req, res){
 
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
@@ -10,9 +10,9 @@ export default function getStaffyId(req, res){
         database: process.env.DB_NAME 
     });
     
-    // GET Member with MemberID 
+    // GET Author 
     const getMethod = () => {
-        connection.query("SELECT * FROM staff",
+        connection.query("SELECT * FROM authors",
         (err, results, fields) =>{ 
 
             if(results.length != 0 && !err){

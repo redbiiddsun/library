@@ -12,7 +12,7 @@ export default function getStaffyId(req, res){
     
     // GET Member with MemberID 
     const getMethod = () => {
-        connection.query("SELECT * FROM staff",
+        connection.query("SELECT * FROM staff WHERE staff_id = ?", [req.query.id],
         (err, results, fields) =>{ 
 
             if(results.length != 0 && !err){
