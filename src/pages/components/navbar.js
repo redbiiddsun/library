@@ -28,7 +28,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/member">
+            <Link href="/libraryms/cmember">
               <Image src={image5} alt="" width={40} height={40}/>
               <span> Members</span>
             </Link>
