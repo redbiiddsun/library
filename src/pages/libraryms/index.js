@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
+import styles from "@/styles/components/grting.module.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
-function MemberPage() {
+function HomePage() {
   return (
     <>
 
@@ -23,17 +24,21 @@ function MemberPage() {
       </Head>
       <main>
         <Navbar/>
-        <header class="greeting">
-          <span class="grtname">Hello, John K.</span>
+        <header className={styles.greeting}>
+          <span className={styles.grtname}>Hello, John K.</span>
           <br />
-          <span class="date">Sunday, 2 June 2023 | 12:12 </span>
+          <span className={styles.date}>Sunday, 2 June 2023 | 12:12 </span>
         </header>
+        <div className={styles.smallone}></div>
+        <div className={styles.smalltw}></div>
+        <div className={styles.smallthr}></div>
+        <div className={styles.bigbox}></div>
       </main>
     </>
   );
 }
 
-export default MemberPage;
+export default HomePage;
 
 {
   /* 
