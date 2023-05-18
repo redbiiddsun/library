@@ -1,0 +1,97 @@
+.cmcontainer
+{
+position: absolute;
+width: 1500px;
+height: 650px;
+left: 220px;    
+top: 180px;
+
+background: #FFFFFF;
+box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
+border-radius: 30px;
+}
+
+.currentmem{
+position: absolute;
+width: 558px;
+height: 151px;
+left: 220px;
+top: 36px;
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 700;
+font-size: 64px;
+line-height: 81px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+
+.addbox {
+    position: absolute;
+    left: 800px;
+    top: 870px;
+    
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+    background-color: #17d71e; /* Green */
+    border: none;
+    
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-radius: 30px;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.25));
+}
+.addbox {
+  transition-duration: 0.4s;
+}
+
+.addbox:hover {
+    background-color: #128816; /* Green */
+    color: white;
+}
+
+.editbox {
+    position: absolute;
+    left: 970px;
+    top: 870px;
+    
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+    background-color: #F37022; /* Green */
+    border: none;
+    
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    border-radius: 30px;
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.25));
+
+}
+.editbox {
+  transition-duration: 0.4s;
+}
+
+.editbox:hover {
+    background-color: #984515; /* Green */
+    color: white;
+}
