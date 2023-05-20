@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
 
-export default function getMemberById(req, res){
+export default function getฺBookById(req, res){
 
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
