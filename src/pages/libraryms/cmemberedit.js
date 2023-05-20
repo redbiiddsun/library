@@ -5,7 +5,7 @@ import styles from "@/styles/components/cmemberedit.module.css";
 import Link from 'next/link'
 const outfit = Outfit({ subsets: ["latin"] });
 
-function CmemberPage() {
+function CmemberEditPage() {
   return (
     <>
 
@@ -38,6 +38,6 @@ function CmemberPage() {
   );
 }
 
-export default CmemberPage;
+export default CmemberEditPage;
 
 
