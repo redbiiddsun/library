@@ -95,3 +95,34 @@ color: #000000;
     background-color: #984515; /* Green */
     color: white;
 }
+
+.inputContainer{
+  display: flex;
+  gap: 0.25rem;
+  flex-direction: column;
+}
+
+.inputContainer > label{
+  font-size: 1.25rem;
+
+
+}
+.inputContainer > input{
+  all: unset;
+  background-color: #f5f5f5;
+  font-size: 1rem;
+  border:solid 1px #888888;
+  border-radius: 0.5rem;
+  height: 1.25rem;
+  padding: 0.5rem 0.25rem;
+  max-width: 15rem ;
+}
+.formgroup{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+ 
+  padding: 10px;
+}
+
+
