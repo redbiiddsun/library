@@ -27,7 +27,7 @@ function CstaffAddPage() {
       <main>
         <Navbar/>
        
-        <span className={styles.currentmem}>Add Member</span>
+        <span className={styles.currentmem}>Add Staff</span>
           
         <div className={styles.cmcontainer}>
            <Searchbox/> 
