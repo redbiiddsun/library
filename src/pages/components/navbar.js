@@ -34,7 +34,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/staff">
+            <Link href="/libraryms/cstaff">
               <Image src={image4} alt="" width={40} height={40}/>
               <span> Staff</span>
             </Link>
