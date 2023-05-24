@@ -2,12 +2,12 @@ import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
 import Searchbox from "../components/searchbox";
-import styles from "@/styles/components/cmemberadd.module.css";
+import styles from "@/styles/components/cmemberedit.module.css";
 import Link from 'next/link'
 
 const outfit = Outfit({ subsets: ["latin"] });
 
-function CmemberAddPage() {
+function CstaffEditPage() {
   return (
     <>
 
@@ -27,7 +27,7 @@ function CmemberAddPage() {
       <main>
         <Navbar/>
        
-        <span className={styles.currentmem}>Add Member</span>
+        <span className={styles.currentmem}>Edit Member</span>
           
         <div className={styles.cmcontainer}>
            <Searchbox/> 
@@ -75,6 +75,14 @@ function CmemberAddPage() {
                 <div className={styles.inputContainer}>
                 <label htmlFor ="country">Country</label>
                 <input type = "text" id = "country" placeholder="" ></input>
+                </div> 
+                <div className={styles.inputContainer}>
+                <label htmlFor ="bankaccname">Bank Account Name</label>
+                <input type = "text" id = "bankaccname" placeholder="First-Mid-Last Name" ></input>
+                </div>
+                <div className={styles.inputContainer}>
+                <label htmlFor ="bankaccno">Bank Account Number</label>
+                <input type = "text" id = "bankaccno" placeholder="xxx-xxx-xxxx" ></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="zip">ZIP</label>
@@ -88,21 +96,17 @@ function CmemberAddPage() {
 
 
 
-
-
-
-
         <div className={styles.backbox}>
-        <Link href="/libraryms/cmember"><span>Back</span></Link>
+        <Link href="/libraryms/cstaff"><span>Back</span></Link>
         </div>
         <div className={styles.confirmbox}>
-        <Link href="/libraryms/cmember"><span>Confirmed</span></Link>
+        <Link href="/libraryms/cstaff"><span>Confirmed</span></Link>
         </div>
       </main>
     </>
   );
 }
 
-export default CmemberAddPage;
+export default CstaffEditPage;
 
 
