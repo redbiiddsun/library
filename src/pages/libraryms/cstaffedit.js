@@ -27,7 +27,7 @@ function CstaffEditPage() {
       <main>
         <Navbar/>
        
-        <span className={styles.currentmem}>Edit Member</span>
+        <span className={styles.currentmem}>Edit Staff</span>
           
         <div className={styles.cmcontainer}>
            <Searchbox/> 
