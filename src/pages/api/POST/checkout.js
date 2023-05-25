@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
 
-export default function insertMember(req, res){
+export default function insertCheckout(req, res){
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
