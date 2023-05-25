@@ -49,6 +49,13 @@ function CbookEditPage() {
                 <input type = "text" id = "pagenum" placeholder="Page" ></input>
                 </div>
                 <div className={styles.dropdownContainer}>
+                <label htmlFor ="language-id">Language ID</label>
+                <select name="author-id" id="author-id">
+                    <option value="">Please Select</option>
+                    <option value=""></option>
+                </select>
+                </div>
+                <div className={styles.dropdownContainer}>
                 <label htmlFor ="author-id">Author ID</label>
                 <select name="author-id" id="author-id">
                     <option value="">Please Select</option>
