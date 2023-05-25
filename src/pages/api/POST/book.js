@@ -11,19 +11,18 @@ export default function insertBook(req, res){
     
 
     const postMethod = () => {
-      const {firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country} = req.body;
+      const {book_tile, isbn, page, language, author, publisher, publication, bookcategory} = req.body;
       
-      connection.query(`INSERT INTO member (member_id, member_created, member_fname, member_mname, 
-        member_lname, member_personalID, member_DOB, member_phone, member_email, 
-        member_addresses_1, member_addresses_2, member_city, member_postcode, 
-        member_country)VALUES (NULL, current_timestamp(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country],
+      connection.query(`INSERT INTO books (book_id, book_title, ISBN, page, language_id, author_id, publisher_id, 
+        publication_year, bookcategory_id, book_created) VALUES (NULL, ?, ?,
+         ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)`,
+        [book_tile, isbn, page, language, author, publisher, publication, bookcategory],
         (err, results, fields) =>{
           if(err){
             console.log("Error while inserting", err);
             return res.status(400).send(err);
           }
-          return res.status(201).json({message: "New book successfuly created!", memberID: results.insertId})
+          return res.status(201).json({message: "New member successfuly created!", bookID: results.insertId})
       })
     }
 
