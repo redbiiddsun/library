@@ -23,7 +23,7 @@ export default function insertBook(req, res){
             console.log("Error while inserting", err);
             return res.status(400).send(err);
           }
-          return res.status(201).json({message: "New member successfuly created!", memberID: results.insertId})
+          return res.status(201).json({message: "New book successfuly created!", memberID: results.insertId})
       })
     }
 
