@@ -25,7 +25,7 @@ export default function insertMember(req, res){
         [firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country, member_id],
         (err, results, fields) =>{
           if(err){
-            console.log("Error while inserting", err);
+            console.log("Error while updating", err);
             return res.status(400).send(err);
           }
           return res.status(201).json({message: "Member successfuly updated!", memberID: member_id})
