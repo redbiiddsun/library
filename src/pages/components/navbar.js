@@ -40,13 +40,13 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link href="/book">
+            <Link href="/libraryms/cbook">
               <Image src={image2} alt="" width={40} height={40}/>
               <span> Book</span>
             </Link>
           </li>
           <li>
-            <Link href="/payment">
+            <Link href="/libraryms/cpayment">
               <Image src={image6} alt="" width={40} height={40}/>
               <span> Payment</span>
             </Link>
