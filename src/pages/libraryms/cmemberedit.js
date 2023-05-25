@@ -95,8 +95,8 @@ function CmemberEditPage() {
        <Link href="/libraryms/cmember"><span>Back</span></Link>
        </div>
        <div className={styles.confirmbox}>
-       <Link href="/libraryms/cmember"><span>Confirmed</span></Link>
-       </div>
+          <button type="submit" form="member">Confirm</button>
+        </div>
       </main>
     </>
   );
