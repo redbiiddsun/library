@@ -25,7 +25,7 @@ export default function updateCheckoutDetail(req, res){
       })
     }
 
-  if (req.method === 'POST') {
+  if (req.method === 'PATCH') {
     postMethod();
   } else {
     return res.status(405).json({message: "Method Not Allowed. Use PATCH only"})
