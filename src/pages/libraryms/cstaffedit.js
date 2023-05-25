@@ -100,7 +100,7 @@ function CstaffEditPage() {
         <Link href="/libraryms/cstaff"><span>Back</span></Link>
         </div>
         <div className={styles.confirmbox}>
-        <Link href="/libraryms/cstaff"><span>Confirmed</span></Link>
+          <button type="submit" form="member">Confirm</button>
         </div>
       </main>
     </>
