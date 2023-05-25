@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
 
-export default function getStaffyId(req, res){
+export default function getStaffById(req, res){
 
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
