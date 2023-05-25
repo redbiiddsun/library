@@ -48,7 +48,7 @@
 .box {
   position: absolute;
   width: 68px;
-  height: 1024px;
+  height: 100%;
   left: 0px;
   top: 0px;
   background: #ffffff45;
