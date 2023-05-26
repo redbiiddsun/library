@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
+import Searchbox from "../components/searchbox";
 import styles from "@/styles/components/cpayment.module.css";
 import Link from 'next/link'
 const outfit = Outfit({ subsets: ["latin"] });
@@ -26,12 +27,41 @@ function CPaymentPage() {
         <Navbar/>
         <span className={styles.currentmem}>Payment</span>
         <div className={styles.cmcontainer}> 
+         <div className={styles.inputContainer}>
+                <label htmlFor ="checkout-id">Member ID :</label>
+                <input type = "text" id = "checkout-id" placeholder="Checkout ID" ></input>
+                </div>
+        <div className={styles.inputContainer}>
+                <label htmlFor ="member-id">Current Date :</label>
+                <input type = "text" id = "member-id" placeholder="Member ID" ></input>
+                </div>
+        
         </div>
-        <div className={styles.addbox}>
-        <Link href="/libraryms/cbookadd"><span>add</span></Link>
+
+        <div className={styles.bigtext}>
+            <span>Book List</span>
+            </div>
+        <div className={styles.searchbox}>    
+            <input className={styles.search} type="search" placeholder="Search..."></input>
         </div>
-        <div className={styles.editbox}>
-        <Link href="/libraryms/cbookedit"><span>edit</span></Link>
+
+        <div className={styles.addbbox}>
+          <button type="submit" form="member">Add</button>
+        </div>
+
+        <div className={styles.bigbox}>
+            <div className={styles.htext}>
+                <span>Borrow Book List</span>
+            </div>
+        </div>
+
+
+        <div className={styles.backbox}>
+        <Link href="/libraryms/cbook"><span>Back</span></Link>
+        </div>
+
+        <div className={styles.confirmbox}>
+          <button type="submit" form="member">Confirm</button>
         </div>
         
       </main>
@@ -40,5 +70,6 @@ function CPaymentPage() {
 }
 
 export default CPaymentPage;
+
 
 

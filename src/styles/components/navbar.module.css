@@ -48,11 +48,12 @@
 .box {
   position: absolute;
   width: 68px;
-  height: 1024px;
+  height: 100%;
   left: 0px;
   top: 0px;
   background: #ffffff45;
   transition: 0.4s;
+  border-radius: 30px;
   overflow: hidden;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
 }
