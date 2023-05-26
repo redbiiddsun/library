@@ -89,7 +89,7 @@ function CmemberAddPage() {
 
               <div className={styles.inputContainer}>
                 <label htmlFor="first-name">First Name</label>
-                <input type="text" id="first-name" placeholder="First Name" {...register("firstname")}/>
+                <input type="text" id="first-name" placeholder="First Name" {...register("firstname", {required: true})} required/>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="mid-name">Mid Name</label>
@@ -97,27 +97,27 @@ function CmemberAddPage() {
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="Last Name" {...register("lastname")}></input>
+                <input type="text" id="last-name" placeholder="Last Name" {...register("lastname", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="birthday">Birthday</label>
-                <input type="date" id="birthday" placeholder="DD/MM/YYYY" {...register("DOB")}></input>
+                <input type="date" id="birthday" placeholder="DD/MM/YYYY" {...register("DOB", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="idno">ID Number</label>
-                <input type="text" id="idno" placeholder="13 Identification Numbers" {...register("NationID")}></input>
+                <input type="text" id="idno" placeholder="13 Identification Numbers" {...register("NationID", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="phone">Phone</label>
-                <input type="text" id="phone" placeholder="xxx-xxx-xxxx" {...register("phone")}></input>
+                <input type="text" id="phone" placeholder="xxx-xxx-xxxx" {...register("phone", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" placeholder="xxxxx@email.com" {...register("email")}></input>
+                <input type="text" id="email" placeholder="xxxxx@email.com" {...register("email", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="address1">Address 1</label>
-                <input type="text" id="address1" placeholder="" {...register("addresses1")}></input>
+                <input type="text" id="address1" placeholder="" {...register("addresses1", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="address2">Address 2</label>
@@ -125,15 +125,15 @@ function CmemberAddPage() {
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="city">City</label>
-                <input type="text" id="city" placeholder="" {...register("city")}></input>
+                <input type="text" id="city" placeholder="" {...register("city", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="country">Country</label>
-                <input type="text" id="country" placeholder="" {...register("country")}></input>
+                <input type="text" id="country" placeholder="" {...register("country", {required: true})} required></input>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="zip">ZIP</label>
-                <input type="text" id="zip" placeholder="" {...register("postcode")}></input>
+                <input type="text" id="zip" placeholder="" {...register("postcode", {required: true})} required></input>
               </div>
             </form>
           </div>
