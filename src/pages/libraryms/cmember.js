@@ -3,9 +3,33 @@ import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
 import styles from "@/styles/components/cmembera.module.css";
 import Link from 'next/link'
+import TableComponent from "../components/tableMember";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const outfit = Outfit({ subsets: ["latin"] });
 
 function CmemberPage() {
+
+  const [member, setMember] = useState();
+
+  const memberData = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/member',
+    })
+      .then(function (response) {
+        setMember(response.data)
+      });
+    }
+
+  useEffect(() => {
+
+    memberData()
+
+  }, [])
+
   return (
     <>
 
@@ -23,15 +47,16 @@ function CmemberPage() {
         <title>Library Management System</title>
       </Head>
       <main>
-        <Navbar/>
+        <Navbar />
         <span className={styles.currentmem}>Current Member</span>
-        <div className={styles.cmcontainer}> 
+        <div className={styles.cmcontainer}>
+          <TableComponent data={member} />
         </div>
         <div className={styles.addbox}>
-        <Link href="/libraryms/cmemberadd"><span>add</span></Link>
+          <Link href="/libraryms/cmemberadd"><span>add</span></Link>
         </div>
         <div className={styles.editbox}>
-        <Link href="/libraryms/cmemberedit"><span>edit</span></Link>
+          <Link href="/libraryms/cmemberedit"><span>edit</span></Link>
         </div>
       </main>
     </>
