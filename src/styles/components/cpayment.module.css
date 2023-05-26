@@ -227,3 +227,36 @@ line-height: 81px;
 display: flex;
 align-items: center;
 }
+.ssbox button{
+  position: absolute;
+  left: 290px;
+  top: 250px;
+  
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  
+  color: #FFFFFF;
+  background-color: #F37022; /* Green */
+  border: none;
+  
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  border-radius: 30px;
+  filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.25));
+
+}
+.ssbox button{
+transition-duration: 0.4s;
+}
+
+.ssbox button:hover {
+  background-color: #984515; /* Green */
+  color: white;
+}
