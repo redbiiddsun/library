@@ -31,6 +31,9 @@ function CbookEditPage() {
           
         <div className={styles.cmcontainer}>
            <Searchbox/> 
+           <div className={styles.ssbox}>
+          <button type="submit" form="member">Search</button>
+        </div>
             <div className={styles.searchbox}></div>
 
             <div className={styles.formgroupbigger}>

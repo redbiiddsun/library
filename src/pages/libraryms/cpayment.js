@@ -27,6 +27,7 @@ function CPaymentPage() {
         <Navbar/>
         <span className={styles.currentmem}>Payment</span>
         <div className={styles.cmcontainer}> 
+        
          <div className={styles.inputContainer}>
                 <label htmlFor ="checkout-id">Member ID :</label>
                 <input type = "text" id = "checkout-id" placeholder="Checkout ID" ></input>
@@ -35,9 +36,11 @@ function CPaymentPage() {
                 <label htmlFor ="member-id">Current Date :</label>
                 <input type = "text" id = "member-id" placeholder="Member ID" ></input>
                 </div>
-        
+        <div className={styles.ssbox}>
+               <button type="submit" form="member">Search</button>
+            </div>
         </div>
-
+            
         <div className={styles.bigtext}>
             <span>Book List</span>
             </div>
