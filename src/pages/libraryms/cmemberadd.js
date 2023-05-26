@@ -89,7 +89,7 @@ function CmemberAddPage() {
 
               <div className={styles.inputContainer}>
                 <label htmlFor="first-name">First Name</label>
-                <input type="text" id="first-name" placeholder="First Name" {...register("firstname")} required/>
+                <input type="text" id="first-name" placeholder="First Name" {...register("firstname")}/>
               </div>
               <div className={styles.inputContainer}>
                 <label htmlFor="mid-name">Mid Name</label>
