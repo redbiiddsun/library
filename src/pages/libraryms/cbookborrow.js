@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
+import Searchbox from "../components/searchbox";
 import styles from "@/styles/components/cbookborrow.module.css";
 import Link from 'next/link'
 const outfit = Outfit({ subsets: ["latin"] });
@@ -24,7 +25,7 @@ function CbookBorrowPage() {
       </Head>
       <main>
         <Navbar/>
-        <span className={styles.currentmem}>Request Book</span>
+        <span className={styles.currentmem}>Borrow Book</span>
         <div className={styles.cmcontainer}> 
          <div className={styles.inputContainer}>
                 <label htmlFor ="member-id">Member ID :</label>
@@ -38,13 +39,24 @@ function CbookBorrowPage() {
                 <label htmlFor ="return-date">Return date :</label>
                 <input type = "text" id = "return-date" placeholder="DD/MM/YYYY" ></input>
                  </div>
-       
+        </div>
 
+        <div className={styles.bigtext}>
+            <span>Book List</span>
+            </div>
+        <div className={styles.searchbox}>    
+            <input className={styles.search} type="search" placeholder="Search..."></input>
+        </div>
 
+        <div className={styles.addbbox}>
+          <button type="submit" form="member">Add</button>
+        </div>
 
-
-
-
+        <div className={styles.bigbox}>
+            <div className={styles.htext}>
+                <span>Borrow Book List</span>
+            </div>
+        </div>
 
 
         <div className={styles.backbox}>
@@ -54,7 +66,7 @@ function CbookBorrowPage() {
         <div className={styles.confirmbox}>
           <button type="submit" form="member">Confirm</button>
         </div>
-        </div>
+        
       </main>
     </>
   );
