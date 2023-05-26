@@ -2,11 +2,11 @@
 > This is a part of CPE241 Database System. The System is use to manage basic staff, book also borrowing stuff from library
 
 ## Requirements
-- Node 8.10+
+- Node 16.8.0+
 
 ## ⚡️ Quick start
 
-First, [download](https://nodejs.org/en/download) and install **NodeJS**. Version `18.16.0` or higher is required.
+First, [download](https://nodejs.org/en/download) and install **NodeJS**. Version `16.8.0` or higher is required.
 
 Install dependencies
 ```bash
