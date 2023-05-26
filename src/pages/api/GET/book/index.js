@@ -9,8 +9,11 @@ export default function getBook(req, res){
         database: process.env.DB_NAME 
     });
     
+  
+
     const getMethod = () => {
-      connection.query("SELECT * FROM books",
+
+      connection.query("SELECT b.book_id, b.book_title,b.ISBN, b.page, l.language, a.author_first_name, p.publisher, b.publication_year, c.bookcategory FROM books b, language l, authors a, publishers p, bookcategory c WHERE b.language_id = l.language_id AND b.author_id = a.author_id AND b.publisher_id = p.publisher_id AND b.bookcategory_id = c.bookcategory_id",
       (err, results, fields) =>{
 
         if(err){
