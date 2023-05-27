@@ -1,15 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
+import connection from "../../../lib/DBconnection"
 
 export default function insertStaff(req, res){
-    const connection = mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME 
-      });
     
-
     const postMethod = () => {
       const {firstname, midname, lastname, NationID, DOB, phone, email, addresses1, addresses2, city, postcode, country, bankname, banknum} = req.body;
       
