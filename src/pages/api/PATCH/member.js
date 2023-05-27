@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
+import connection from "../../../lib/DBconnection"
 
 export default function updateMember(req, res){
     const connection = mysql.createConnection({

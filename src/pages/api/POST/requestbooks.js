@@ -1,15 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
+import connection from "../../../lib/DBconnection"
 
 export default function insertRequestBook(req, res){
-    const connection = mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME 
-      });
     
-
     const postMethod = () => {
       const {memberID} = req.body;
       
@@ -20,7 +14,7 @@ export default function insertRequestBook(req, res){
             console.log("Error while inserting", err);
             return res.status(400).send(err);
           }
-          return res.status(201).json({message: "New book successfuly requested!", memberID: results.insertId})
+          return res.status(201).json({message: "New Requestbook successfuly requested!", memberID: results.insertId})
       })
     }
 
