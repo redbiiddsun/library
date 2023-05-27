@@ -41,7 +41,7 @@ export default function TableComponentBook(prop) {
                             <TableCell align="right">{row.author_first_name}</TableCell>
                             <TableCell align="right">{row.publisher}</TableCell>
                             <TableCell align="right">{row.publication_year}</TableCell>
-                            <TableCell align="right">{row.publication_year}</TableCell>
+                            <TableCell align="right">{row.bookcategory}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
