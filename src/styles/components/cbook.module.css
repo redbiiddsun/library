@@ -10,6 +10,9 @@ background: #FFFFFF;
 box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
 border-radius: 30px;
 }
+.cmcontainer::-webkit-scrollbar {
+  display: none;
+}
 
 .currentmem{
 position: absolute;
