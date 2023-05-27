@@ -14,7 +14,7 @@ export default function insertRequestBook(req, res){
             console.log("Error while inserting", err);
             return res.status(400).send(err);
           }
-          return res.status(201).json({message: "New Requestbook successfuly requested!", memberID: results.insertId})
+          return res.status(201).json({message: "New Requestbook successfuly requested!", RequestbookID: results.insertId})
       })
     }
 
