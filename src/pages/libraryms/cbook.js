@@ -3,9 +3,33 @@ import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
 import styles from "@/styles/components/cbook.module.css";
 import Link from 'next/link'
+import TableComponent from "../components/tableMember";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import TableComponentBook from "../components/tableBook";
+
 const outfit = Outfit({ subsets: ["latin"] });
 
 function CbookPage() {
+  const [book, setBook] = useState();
+
+  const bookData = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/book',
+    })
+      .then(function (response) {
+        setBook(response.data)
+      });
+    }
+
+  useEffect(() => {
+
+    bookData()
+
+  }, [])
+
   return (
     <>
 
@@ -26,6 +50,7 @@ function CbookPage() {
         <Navbar/>
         <span className={styles.currentmem}>Current Book</span>
         <div className={styles.cmcontainer}> 
+        <TableComponentBook data={book}/>
         </div>
         <div className={styles.addbox}>
         <Link href="/libraryms/cbookadd"><span>add</span></Link>
