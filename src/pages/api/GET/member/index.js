@@ -1,13 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import mysql from "mysql2"
+import connection from "../../../../lib/DBconnection"
 
 export default function getMember(req, res){
-    const connection = mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME 
-      });
     
     const getMethod = () => {
       connection.query("SELECT * FROM member",
