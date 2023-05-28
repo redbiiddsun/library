@@ -11,7 +11,7 @@ font-size: 64px;
 line-height: 81px;
 display: flex;
 align-items: center;
-color: #000000;
+color: #FFFFFF;
 }
 
 .date{
@@ -27,11 +27,13 @@ font-size: 32px;
 line-height: 40px;
 display: flex;
 align-items: center;
-color: #000000;
+color: #FFFFFF;
 }
 
 .smallone{
+
 position: absolute;
+display: flex;
 width: 450px;
 height: 200px;
 left: 250px;
@@ -42,6 +44,7 @@ border-radius: 30px;
 }
 .smalltw{
     position: absolute;
+    display: flex;
 width: 450px;
 height: 200px;
 left: 770px;
@@ -52,6 +55,7 @@ top: 200px;
 }
 .smallthr{
 position: absolute;
+display: flex;
 width: 450px;
 height: 200px;
 left: 1300px;
@@ -66,8 +70,113 @@ top: 200px;
     height: 500px;
     left: 250px;
     top: 450px;
-    
+    overflow-y:scroll;
     background: #FFFFFF;
     box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
+    
+}
+.bigbox::-webkit-scrollbar {
+    display: none;
+  }
+
+  .biggerboxrow{
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 10px;
+  
+  }
+
+  
+
+.bigboxs1{
+    position: absolute;
+    width: 1500px;
+    height: 500px;
+    left: 250px;
+    top: 1000px;
+    overflow-y:scroll;
+    background: #FFFFFF;
+    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    
+}
+.bigboxs1::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bigboxs2{
+    position: absolute;
+    width: 1500px;
+    height: 500px;
+    left: 250px;
+    top: 1550px;
+    overflow-y:scroll;
+    background: #FFFFFF;
+    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    
+}
+.bigboxs2::-webkit-scrollbar {
+    display: none;
+  }
+  .bigboxs3{
+    position: absolute;
+    width: 1500px;
+    height: 500px;
+    left: 250px;
+    top: 2100px;
+    overflow-y:scroll;
+    background: #FFFFFF;
+    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    
+}
+.bigboxs3::-webkit-scrollbar {
+    display: none;
+  }
+  .bigboxs4{
+    position: absolute;
+    width: 1500px;
+    height: 500px;
+    left: 250px;
+    top: 2650px;
+    overflow-y:scroll;
+    background: #FFFFFF;
+    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    
+}
+.bigboxs4::-webkit-scrollbar {
+    display: none;
+  }
+
+  .smallone span{
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px;
+    
+  }
+  .smalltw span{
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px;
+    
+  }
+  .smallthr span{
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px; 
+  }
+.statisscore{
+    position: absolute;
+display: flex;
+
+}
+
+.statisscore span{
+    margin:50px 150px;
+    
+    font-size: 80px;
+    font-weight: 600;
 }
