@@ -4,10 +4,100 @@ import Navbar from "../components/navbar";
 import Searchbox from "../components/searchbox";
 import styles from "@/styles/components/cmemberedit.module.css";
 import Link from 'next/link'
+import styless from "@/styles/components/searchbox.module.css"
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useForm } from "react-hook-form";
+import { UseDialog } from "../components/dialog";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
 function CstaffEditPage() {
+  const [search, setSearch] = useState()
+  const [resData, setResData] = useState([])
+
+    //Init Dialog
+    const { handleClickToOpen, DialogComponent } = UseDialog();
+
+    // store a dialog value
+    const [resTitle, setresTitle] = useState("");
+    const [resContent, setresContent] = useState("");
+
+  function convertToFormattedDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+
+    return formattedDate;
+  }
+
+  async function onSearch(e) {
+    e.preventDefault()
+    await axios({ method: 'get', url: `/api/GET/staff/${search}`, }).then(function (response) {
+      setResData(response.data[0])
+      console.log(response.data[0])
+    }).catch(function (error) {
+      console.log(error);
+
+    });
+  }
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState,
+    formState: { isSubmitSuccessful }
+  } = useForm(
+    {
+      values: {
+        firstname: resData.staff_fname,
+        midname: resData.staff_mname,
+        lastname: resData.staff_lname,
+        DOB: convertToFormattedDate(resData.staff_DOB),
+        NationID: resData.staff_personalID,
+        phone: resData.staff_phone,
+        email: resData.staff_email,
+        addresses1: resData.staff_addresse_1,
+        addresses2: resData.staff_addresse_2,
+        city: resData.staff_city,
+        zip: resData.staff_postcode,
+        country: resData.staff_country,
+        bankaccname: resData.bank_name,
+        bankaccno: resData.bankAcc_num
+      }
+    }
+  );
+
+  function onSubmit(data) {
+    //console.log(data)
+    const temp = { member_id: resData.member_id, ...data }
+    console.log(temp)
+    axios({
+      method: 'patch',
+      url: '/api/PATCH/member/',
+      data: temp
+    })
+      .then(function (response) {
+
+        setresTitle(response.data.message)
+        setresContent(`MemberID: ${response.data.memberID} is updated`)
+
+        handleClickToOpen()
+
+      }).catch(function (error) {
+        console.log(error);
+
+        setresTitle("Error")
+      setresContent(`Please Contact Admin`)
+
+      handleClickToOpen()
+
+      });
+  }
   return (
     <>
 
@@ -28,67 +118,71 @@ function CstaffEditPage() {
         <Navbar/>
        
         <span className={styles.currentmem}>Edit Staff</span>
-          
         <div className={styles.cmcontainer}>
-           <Searchbox/> 
-            <div className={styles.searchbox}></div>
-            <div className={styles.ssbox}>
-          <button type="submit" form="member">Search</button>
-        </div>
+          <form onSubmit={onSearch}>
+           <Searchbox onChange={setSearch}/> 
+           <div className={styles.ssbox}>
+              <button type="submit" >Search</button>
+           </div>
+          </form>
             <div className={styles.formgroupbigger}>
-              <form className={styles.formgroup}>
+              <form id="updatestaff" className={styles.formgroup} onSubmit={handleSubmit(onSubmit)}>              
 
                 <div className={styles.inputContainer}>
                 <label htmlFor ="first-name">First Name</label>
-                <input type = "text" id = "first-name" placeholder="First Name"/>
+                <input type = "text" id = "first-name" placeholder="First Name"{...register("firstname", { required: true })}/>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="mid-name">Mid Name</label>
-                <input type = "text" id = "mid-name" placeholder="Mid Name" ></input>
+                <input type = "text" id = "mid-name" placeholder="Mid Name" {...register("midname")}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="last-name">Last Name</label>
-                <input type = "text" id = "last-name" placeholder="Last Name" ></input>
+                <input type = "text" id = "last-name" placeholder="Last Name" {...register("lastname", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="birthday">Birthday</label>
-                <input type = "text" id = "birthday" placeholder="DD/MM/YYYY" ></input>
+                <input type = "text" id = "birthday" placeholder="DD/MM/YYYY" {...register("DOB", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="idno">ID Number</label>
-                <input type = "text" id = "idno" placeholder="13 Identification Numbers" ></input>
+                <input type = "text" id = "idno" placeholder="13 Identification Numbers" {...register("NationID", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="phone">Phone</label>
-                <input type = "text" id = "phone" placeholder="xxx-xxx-xxxx" ></input>
+                <input type = "text" id = "phone" placeholder="xxx-xxx-xxxx" {...register("phone", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="email">Email</label>
-                <input type = "text" id = "email" placeholder="xxxxx@email.com" ></input>
+                <input type = "text" id = "email" placeholder="xxxxx@email.com" {...register("email", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="address1">Address 1</label>
-                <input type = "text" id = "address1" placeholder="" ></input>
+                <input type = "text" id = "address1" placeholder="" {...register("addresses1", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="address2">Address 2</label>
-                <input type = "text" id = "address2" placeholder="" ></input>
+                <input type = "text" id = "address2" placeholder="" {...register("addresses2")}></input>
                 </div>
                 <div className={styles.inputContainer}>
+                <label htmlFor ="city">City</label>
+                <input type = "text" id = "city" placeholder="" {...register("city", { required: true })}></input>
+                </div> 
+                <div className={styles.inputContainer}>
                 <label htmlFor ="country">Country</label>
-                <input type = "text" id = "country" placeholder="" ></input>
+                <input type = "text" id = "country" placeholder="" {...register("country", { required: true })}></input>
                 </div> 
                 <div className={styles.inputContainer}>
                 <label htmlFor ="bankaccname">Bank Account Name</label>
-                <input type = "text" id = "bankaccname" placeholder="First-Mid-Last Name" ></input>
+                <input type = "text" id = "bankaccname" placeholder="First-Mid-Last Name" {...register("bankaccname", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="bankaccno">Bank Account Number</label>
-                <input type = "text" id = "bankaccno" placeholder="xxx-xxx-xxxx" ></input>
+                <input type = "text" id = "bankaccno" placeholder="xxx-xxx-xxxx" {...register("bankaccno", { required: true })}></input>
                 </div>
                 <div className={styles.inputContainer}>
                 <label htmlFor ="zip">ZIP</label>
-                <input type = "text" id = "zip" placeholder="" ></input>
+                <input type = "text" id = "zip" placeholder="" {...register("zip", { required: true })}></input>
                 </div>
                 </form>
 
@@ -104,6 +198,7 @@ function CstaffEditPage() {
         <div className={styles.confirmbox}>
           <button type="submit" form="member">Confirm</button>
         </div>
+        <DialogComponent title={resTitle} content={resContent} />
       </main>
     </>
   );
