@@ -25,14 +25,14 @@ line-height: 81px;
 display: flex;
 align-items: center;
 
-color: #000000;
+color:#FFFFFF;
 }
 
 
 .backbox {
     position: absolute;
     left: 820px;
-    top: 1130px;
+    top: 1180px;
     
     font-family: 'Outfit';
     font-style: normal;
@@ -65,7 +65,7 @@ color: #000000;
 .confirmbox button{
     position: absolute;
     left: 1000px;
-    top: 1130px;
+    top: 1180px;
     
     font-family: 'Outfit';
     font-style: normal;
@@ -167,7 +167,7 @@ line-height: 81px;
 display: flex;
 align-items: center;
 
-color: #000000;
+color: #FFFFFF;
 }
 .addbbox button{
     position: absolute;
@@ -208,7 +208,7 @@ color: #000000;
     width: 1500px;
     height: 500px;
     left: 220px;
-    top: 620px;
+    top: 660px;
     
     background: #FFFFFF;
     box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.25);
@@ -217,15 +217,16 @@ color: #000000;
 .htext span{
     position: absolute;
 
-left: 80px;
-top: 20px;
+left: 250px;
+top: 590px;
 font-family: 'Outfit';
 font-style: normal;
 font-weight: 700;
-font-size: 30px;
+font-size: 40px;
 line-height: 81px;
 display: flex;
 align-items: center;
+color: #FFFFFF;
 }
 .ssbox button{
   position: absolute;
