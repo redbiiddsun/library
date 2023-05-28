@@ -4,7 +4,7 @@ import connection from "@/lib/DBconnection";
 export default function getBorrowMemberStat(req, res){
 
     const getMethod = () => {
-        connection.query("SELECT m.member_id,m.member_fname,m.member_lname ,COUNT(c.checkout_id+c.checkout_amount) AS statisticsborrowbooks FROM checkouts c, member m GROUP BY c.member_id",
+        connection.query(`SELECT m.member_id, CONCAT(m.member_fname, " ",m.member_lname) AS MemberName, t.statisticsborrowbooks FROM (SELECT c.member_id,SUM(c.checkout_amount)AS statisticsborrowbooks FROM checkouts c GROUP BY c.member_id) t, member m WHERE t.member_id = m.member_id`,
         (err, results, fields) =>{ 
 
             if(results.length != 0 && !err){
