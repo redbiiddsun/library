@@ -96,6 +96,8 @@ function CmemberEditPage() {
       handleClickToOpen()
 
       });
+      setResData([])
+
   }
 
 
