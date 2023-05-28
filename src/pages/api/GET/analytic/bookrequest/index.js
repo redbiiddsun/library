@@ -7,7 +7,7 @@ export default function getBookRequest(req, res){
     
     // GET Author 
     const getMethod = () => {
-        connection.query("SELECT DISTINCT rb.request_id,rd.request_title, m.member_fname, m.member_lname, `language`, author_first_name,author_last_name, publisher FROM requestdetail rd,requestbooks rb,publishers p,authors a,`language` l,member m WHERE rd.publisher_id = p.publisher_id AND rd.author_id = a.author_id AND rd.language_id = l.language_id",
+        connection.query(`SELECT rb.request_id, CONCAT(m.member_fname," " ,m.member_lname) AS Member, rd.request_title, l.language, CONCAT(a.author_first_name," " ,a.author_last_name) AS Author,p.publisher FROM requestdetail rd, requestbooks rb , language l, authors a, publishers p, member m WHERE rd.request_id = rb.request_id AND rb.member_id = m.member_id AND rd.language_id = l.language_id AND rd.author_id = a.author_id AND rd.publisher_id = p.publisher_id`,
         (err, results, fields) =>{ 
 
             if(results.length != 0 && !err){
