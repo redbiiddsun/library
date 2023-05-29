@@ -51,11 +51,11 @@ function CbookBorrowPage() {
         <div className={styles.addbbox}>
           <button type="submit" form="member">Add</button>
         </div>
-
-        <div className={styles.bigbox}>
             <div className={styles.htext}>
                 <span>Borrow Book List</span>
             </div>
+        <div className={styles.bigbox}>
+            
         </div>
 
 
