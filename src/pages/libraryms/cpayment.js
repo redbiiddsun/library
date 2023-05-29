@@ -22,7 +22,23 @@ function CPaymentPage() {
   const [memberID, setmemberID] = useState();
   const [resData, setResData] = useState();
 
+  //Init Dialog
+  const { handleClickToOpen, DialogComponent } = UseDialog();
 
+  // store a dialog value
+  const [resTitle, setresTitle] = useState("");
+  const [resContent, setresContent] = useState("");
+
+
+  function convertToFormattedDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+
+    return formattedDate;
+  }
   async function onSearch(e) {
     e.preventDefault()
     console.log(memberID)
@@ -33,6 +49,29 @@ function CPaymentPage() {
     }).catch(function (error) {
       console.log(error);
 
+    });
+  }
+
+  async function onSubmit() {
+    
+    //console.log(resData[0].checkout_id)
+    
+    const temp = { checkoutID: resData[0].checkout_id, totalAmount: 0, staffID: 1}
+    await axios.post('http://localhost:3000/api/POST/payment', temp).then(function (response) {
+
+      setresTitle("Notification")
+      setresContent(response.data.message)
+
+      handleClickToOpen()
+
+
+    }).catch(function (error) {
+      console.log(error);
+
+      setresTitle("Error")
+      setresContent(`Please Contact Admin`)
+
+      handleClickToOpen()
     });
   }
 
@@ -94,7 +133,7 @@ function CPaymentPage() {
 
                             <TableCell align="right">{row.book_id}</TableCell>
                             <TableCell align="right">{row.book_title}</TableCell>
-                            <TableCell align="right">{row.return_duration_date}</TableCell>
+                            <TableCell align="right">{convertToFormattedDate(row.return_duration_date)}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -107,9 +146,9 @@ function CPaymentPage() {
       </div>
 
       <div className={styles.confirmbox}>
-        <button type="submit" form="member">Confirm</button>
+        <button type="submit" onClick={onSubmit}>Confirm</button>
       </div>
-
+      <DialogComponent title={resTitle} content={resContent} />                  
     </main >
     </>
   );
