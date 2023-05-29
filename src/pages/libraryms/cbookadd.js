@@ -176,7 +176,7 @@ function CbookAddPage() {
                 <select name="author-id" id="author-id" {...register("language")} required>
                   <option value="">Please Select</option>
                   {
-                    language.map((result) => (<option value={result.language_id}>{result.language}</option>))
+                    language.map((result, key) => (<option value={result.language_id} key={key}>{result.language}</option>))
                   }
                 </select>
               </div>
@@ -185,7 +185,7 @@ function CbookAddPage() {
                 <select name="author-id" id="author-id" {...register("author")} required>
                   <option value="">Please Select</option>
                   {
-                    author.map((result) => (<option value={result.author_id}>{result.author_first_name}</option>))
+                    author.map((result, key) => (<option value={result.author_id} key={key}>{result.author_first_name}</option>))
                   }
                 </select>
               </div>
@@ -194,7 +194,7 @@ function CbookAddPage() {
                 <select name="publisher-id" id="publisher-id" {...register("publisher")} required>
                   <option value="">Please Select</option>
                   {
-                    publisher.map((result) => (<option value={result.publisher_id}>{result.publisher}</option>))
+                    publisher.map((result, key) => (<option value={result.publisher_id} key={key}>{result.publisher}</option>))
                   }
                 </select>
               </div>
@@ -207,7 +207,7 @@ function CbookAddPage() {
                 <select name="bookcategory-id" id="bookcategory-id" {...register("bookcategory")} required>
                   <option value="">Please Select</option>
                   {
-                    bookcategory.map((result) => (<option value={result.bookcategory_id}>{result.bookcategory}</option>))
+                    bookcategory.map((result, key) => (<option value={result.bookcategory_id} key={key}>{result.bookcategory}</option>))
                   }
                 </select>
               </div>
@@ -216,7 +216,7 @@ function CbookAddPage() {
                 <select name="bookgenre" id="bookgenre" {...register("genres")} required>
                   <option value="">Please Select</option>
                   {
-                    genres.map((result) => (<option value={result.genres_id}>{result.genres}</option>))
+                    genres.map((result, key) => (<option value={result.genres_id} key={key}>{result.genres}</option>))
                   }
                 </select>
               </div>

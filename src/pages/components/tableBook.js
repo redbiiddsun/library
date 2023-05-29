@@ -27,9 +27,9 @@ export default function TableComponentBook(prop) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data && data.map((row) => (
+                    {data && data.map((row, key) => (
                         <TableRow
-                            key={row.staff_id}
+                            key={key}
                         //sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
 

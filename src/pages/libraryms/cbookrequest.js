@@ -141,7 +141,7 @@ function CbookRequestPage() {
                 <select name="language-id" id="language-id" {...register("language")} required>
                   <option value="">Please Select</option>
                   {
-                    language.map((result) => (<option value={result.language_id}>{result.language}</option>))
+                    language.map((result, key) => (<option value={result.language_id} key={key}>{result.language}</option>))
                   }
                 </select>
               </div>
@@ -151,7 +151,7 @@ function CbookRequestPage() {
                 <select name="author-id" id="author-id" {...register("author")} required>
                   <option value="">Please Select</option>
                   {
-                    author.map((result) => (<option value={result.author_id}>{result.author_first_name}</option>))
+                    author.map((result, key) => (<option value={result.author_id} key={key}>{result.author_first_name}</option>))
                   }
                 </select>
               </div>
@@ -161,7 +161,7 @@ function CbookRequestPage() {
                 <select name="publisher-id" id="publisher-id" {...register("publisher")} required>
                   <option value="">Please Select</option>
                   {
-                    publisher.map((result) => (<option value={result.publisher_id}>{result.publisher}</option>))
+                    publisher.map((result, key) => (<option value={result.publisher_id} key={key}>{result.publisher}</option>))
                   }
                 </select>
               </div>
