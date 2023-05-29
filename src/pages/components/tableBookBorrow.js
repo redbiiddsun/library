@@ -27,14 +27,12 @@ export default function TableComponentBookBorrow(prop) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row) => {
-                        console.log(row.ISBN)
-                        
+                    {data.map((row, key) => {                        
                         return (
 
                             <>
                             <TableRow
-                            key={row.staff_id}
+                            key={key}
                         //sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             
