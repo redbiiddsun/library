@@ -10,7 +10,7 @@ export default function getBorrowStat(req, res) {
                 if (results.length != 0 && !err) {
                     return res.status(200).json(results);
                 } else {
-                    return res.status(400).json({ error: "Invalid ID" });
+                    return res.status(204).json({ error: "Invalid ID" });
                 }
             })
     }
