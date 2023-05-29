@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
 import Searchbox from "../components/searchbox";
-import styles from "@/styles/components/cmemberedit.module.css";
+import styles from "@/styles/components/cstaffedit.module.css";
 import Link from 'next/link'
 import styless from "@/styles/components/searchbox.module.css"
 import { useState, useEffect } from "react";

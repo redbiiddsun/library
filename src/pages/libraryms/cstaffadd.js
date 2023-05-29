@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Outfit } from "next/font/google";
 import Navbar from "../components/navbar";
 import Searchbox from "../components/searchbox";
-import styles from "@/styles/components/cmemberadd.module.css";
+import styles from "@/styles/components/cstaffadd.module.css";
 import Link from 'next/link'
 import { useForm } from "react-hook-form";
 import axios from "axios";
