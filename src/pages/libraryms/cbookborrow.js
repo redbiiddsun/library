@@ -12,50 +12,60 @@ import { useState, useEffect, use } from "react";
 import TableComponentBookBorrow from "../components/tableBookBorrow";
 function CbookBorrowPage() {
 
-   //Init Dialog
-   const { handleClickToOpen, DialogComponent } = UseDialog();
+  //Init Dialog
+  const { handleClickToOpen, DialogComponent } = UseDialog();
 
-   // store a dialog value
-   const [resTitle, setresTitle] = useState("");
-   const [resContent, setresContent] = useState("");
-   
-   const [bookID, setBookID] = useState()
-   const [memberID, setmemberID] = useState();
+  // store a dialog value
+  const [resTitle, setresTitle] = useState("");
+  const [resContent, setresContent] = useState("");
 
-   const [resData, setResData] = useState([]);
+  const [bookID, setBookID] = useState()
+  const [memberID, setmemberID] = useState();
+
+  const [resData, setResData] = useState([]);
   const [countData, setCounData] = useState(0)
-   const {
-     register,
-     handleSubmit,
-     reset,
-     formState,
-     formState: { isSubmitSuccessful }
-   } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState,
+    formState: { isSubmitSuccessful }
+  } = useForm();
 
-   const onSubmit = async (data) => {
-    console.log(data)
-    if(countData > 0){
+  const onSubmit = async (data) => {
 
-    }else{
+    const temp = { bookList: resData, ...data, amount: countData}
+    console.log(temp)
+
+    if (countData > 0) {
+      console.log("Complete")
       
+      await axios.post('/api/POST/checkout', temp).then(function (response) {
+
+      setresTitle(response.data.message)
+      setresContent(`CheckoutID is ${response.data.checkoutID}`)
+
+      handleClickToOpen()
+
+      reset({ ...data })
+      setResData([])
+
+
+      }).catch(function (error) {
+        console.log(error);
+
+        setresTitle("Error")
+        setresContent(`Please Contact Admin`)
+
+        handleClickToOpen()
+      });
+    } else {
+      setresTitle("Error")
+      setresContent(`Please select at lease one book.`)
+
+        handleClickToOpen()
     }
-    // await axios.post('http://localhost:3000/api/POST/staff', data).then(function (response) {
-
-    //   setresTitle(response.data.message)
-    //   setresContent(`StaffID is ${response.data.StaffID}`)
-
-    //   handleClickToOpen()
-
-
-    // }).catch(function (error) {
-    //   console.log(error);
-
-    //   setresTitle("Error")
-    //   setresContent(`Please Contact Admin`)
-
-    //   handleClickToOpen()
-    // });
-    // reset({ ...data })
+    
   };
 
   async function onSearch(e) {
@@ -66,8 +76,7 @@ function CbookBorrowPage() {
       setResData((prv) => ([
         ...prv, data
       ]))
-      setCounData(e => e+1)
-      //console.log(response.data[0])
+      setCounData(e => e + 1)
 
     }).catch(function (error) {
       console.log(error);
@@ -78,6 +87,14 @@ function CbookBorrowPage() {
     console.log(resData)
     console.log(countData)
   }, [resData]);
+
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        memberID: '', staffID: '', currentdate: '', returndate: '',
+      });
+    }
+  }, [formState, reset]);
 
   return (
     <>
@@ -123,20 +140,20 @@ function CbookBorrowPage() {
           <span>Book List</span>
         </div>
         <form id='paymentsearch' onSubmit={onSearch}>
-        <div className={styles.searchbox}>
-          <input className={styles.search} type="search" placeholder="Search..." onChange={ (e) => setBookID(e.target.value)}></input>
-        </div>
+          <div className={styles.searchbox}>
+            <input className={styles.search} type="search" placeholder="Search..." onChange={(e) => setBookID(e.target.value)}></input>
+          </div>
 
-        <div className={styles.addbbox}>
-          <button type="submit" form="paymentsearch">Add</button>
-        </div>
+          <div className={styles.addbbox}>
+            <button type="submit" form="paymentsearch">Add</button>
+          </div>
         </form>
 
         <div className={styles.htext}>
           <span>Borrow Book List</span>
         </div>
         <div className={styles.bigbox}>
-          <TableComponentBookBorrow data={resData}/>
+          <TableComponentBookBorrow data={resData} />
         </div>
 
 
