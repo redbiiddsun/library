@@ -101,19 +101,19 @@ export default function Home() {
         <div className={styles.smallone}>
           <span>Total Member :</span>
           <div className={styles.statisscore}>
-            <span></span>
+            <span>5</span>
           </div>
         </div>
         <div className={styles.smalltw}>
           <span>Total Staff :</span>
           <div className={styles.statisscore}>
-            <span></span>
+            <span>5</span>
           </div>
         </div>
         <div className={styles.smallthr}>
           <span>Total Book :</span>
           <div className={styles.statisscore}>
-            <span></span>
+            <span>6</span>
           </div>
         </div>
         s
