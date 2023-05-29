@@ -8,6 +8,7 @@ import TableComponent from "../pages/components/tableAddDaily";
 import TableComponentRequestBook from './components/tablebookrequestdaily';
 import TableComponentBorrowStat from './components/tableBorrowStat';
 import TableComponentBorrowStatMember from './components/tableborrowStatMember';
+import TableComponentReqFreq from './components/tableReqFreq';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -20,6 +21,48 @@ export default function Home() {
   const [requestBookDaily, setrequestBookDaily] = useState();
   const [BorrowStat, setBorrowStat] = useState();
   const [borrowStatMember, setborrowStatMember] = useState();
+  const [reqFreq, setreqFreq] = useState();
+
+  const [bookNum, setBookNum] = useState();
+  const [staffNum, setStaffNum] = useState();
+  const [memberNum, setMemberNum] = useState();
+
+  const countBook = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/analytic/totalbook',
+    })
+      .then(function (response) {
+        //console.log(response.data[0].bookNum)
+        setBookNum(response.data[0].bookNum)
+      });
+  }
+
+  const countStaff = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/analytic/totalstaff',
+    })
+      .then(function (response) {
+        //console.log(response.data[0].staffNum)
+        setStaffNum(response.data[0].staffNum)
+      });
+  }
+
+  const countMember = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/analytic/totalmember',
+    })
+      .then(function (response) {
+        //console.log(response.data[0].staffNum)
+        setMemberNum(response.data[0].memberNum)
+      });
+  }
+
 
 
   const addedBookData = async () => {
@@ -32,6 +75,18 @@ export default function Home() {
         setMember(response.data)
       });
   }
+
+  const requestBookFreq = async () => {
+
+    axios({
+      method: 'get',
+      url: '/api/GET/analytic/requestFreq',
+    })
+      .then(function (response) {
+        setreqFreq(response.data)
+      });
+  }
+
   const requestBookDailyData = async () => {
 
     axios({
@@ -70,6 +125,11 @@ export default function Home() {
     requestBookDailyData()
     borrowStatData()
     borrowStatMemberData()
+    countBook()
+    countStaff()
+    countMember()
+    requestBookFreq()
+
 
   }, [])
 
@@ -101,22 +161,22 @@ export default function Home() {
         <div className={styles.smallone}>
           <span>Total Member :</span>
           <div className={styles.statisscore}>
-            <span>5</span>
+            <span>{memberNum}</span>
           </div>
         </div>
         <div className={styles.smalltw}>
           <span>Total Staff :</span>
           <div className={styles.statisscore}>
-            <span>5</span>
+            <span>{staffNum}</span>
           </div>
         </div>
         <div className={styles.smallthr}>
           <span>Total Book :</span>
           <div className={styles.statisscore}>
-            <span>6</span>
+            <span>{bookNum}</span>
           </div>
         </div>
-        s
+        
 
         <div className={styles.bigbox}>
           <TableComponent data={addedBook} />
@@ -131,7 +191,7 @@ export default function Home() {
           <TableComponentBorrowStatMember data={borrowStatMember} />
         </div>
         <div className={styles.bigboxs4}>
-          {/* <TableComponent data={addedBook} /> */}
+          <TableComponentReqFreq data={reqFreq} />
         </div>
 
       </main>
