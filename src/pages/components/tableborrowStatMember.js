@@ -22,7 +22,7 @@ export default function TableComponentBorrowStatMember(prop) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row) => (
+                    { data && data.map((row) => (
                         <TableRow
                             key={row.staff_id}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
