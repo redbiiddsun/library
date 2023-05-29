@@ -27,9 +27,9 @@ function HomePage() {
         <header className={styles.greeting}>
           <span className={styles.grtname}>Hello, John K.</span>
           <br />
-          <span className={styles.date}>Sunday, 2 June 2023 | 12:12 </span>
+          <span className={styles.date}>Sunday, 2 June 2023 | 11:12 </span>
         </header>
-        <div className={styles.smallone}></div>
+        <div className={styles.smallone}></div> 
         <div className={styles.smalltw}></div>
         <div className={styles.smallthr}></div>
         <div className={styles.bigbox}></div>

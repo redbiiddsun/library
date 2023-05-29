@@ -9,6 +9,7 @@
   overflow: hidden;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   background-color:#ee1616e3;
+
 }
 /* #436a48 */
 
@@ -24,6 +25,22 @@
 .box:hover ul li a span {
   opacity: 1;
   visibility: visible;
+  text-align: center;
+  background: linear-gradient(to right, #050505 20%, #FF0 40%, #FF0 60%, #FFF 80%);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 1s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 }
 
 .sidebar ul li a {
@@ -38,6 +55,7 @@
 
 .sidebar ul li a img {
   width: 40px;
+  border-radius: 8px;
 }
 
 .sidebar ul li a span {
@@ -45,6 +63,23 @@
   opacity: 0;
   visibility: 0;
   transition: 0.3s ease-in;
+  text-align: center;
+  background: linear-gradient(to right, #000000 20%, #FF0 40%, #FF0 60%, #FFF 80%);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 1s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+  
 }
 
 .box {
@@ -58,20 +93,43 @@
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  
 }
 
 .Logo {
   display: flex;
   align-items: left;
-  padding: 10px 10px 10px 0px;
+  padding: 10px 0px 0px 5px;
+  
+
+}
+.Logo img{
+  border-radius: 30%;
 }
 
 .Logo span {
   margin-left: 20px;
+  margin-top: 0px;
   color: #ffffff;
   opacity: 0;
   visibility: 0;
   transition: 0.3s ease-in;
+  text-align: center;
+  background: linear-gradient(to right, #000000 20%, #FF0 40%, #FF0 60%, #FFF 80%);
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: shine 1s linear infinite;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
 }
 
 .box:hover .Logo span {

@@ -9,14 +9,15 @@ import image3 from "../../../public/image/HouseLine.png"
 import image4 from "../../../public/image/UserCircleGear.png"
 import image5 from "../../../public/image/UsersThree.png"
 import image6 from "../../../public/image/CurrencyCircleDollar.png"
-
+import besttheme from "../../../public/image/teamssgss-removebg.png"
 
 
 export default function Navbar() {
   return (
+    
     <div className={styles.box}>
       <div className={styles.Logo}>
-        <Image src={image1} alt="" width={70} height={70}/>
+        <Image src={besttheme} alt="" width={60} height={60}/>
         <span>Library Management System</span>
       </div>
       <div className={styles.sidebar}>
@@ -53,6 +54,8 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
+      
     </div>
+    
   )
 }

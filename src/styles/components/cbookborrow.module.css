@@ -24,8 +24,22 @@ font-size: 64px;
 line-height: 81px;
 display: flex;
 align-items: center;
+text-align: center;
+background: linear-gradient(to right, #FFF 20%, #FF0 40%, #FF0 60%, #FFF 80%);
+background-size: 200% auto;
 
-color: #FFFFFF;
+color: #000;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: shine 1s linear infinite;
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 }
 
 
@@ -108,7 +122,7 @@ color: #FFFFFF;
 font-style: normal;
   font-size: 2rem;
   margin-left: 120px ;
-  margin-top: 30px;
+  margin-top: 18px;
   align-items: center;
 }
 .inputContainer > input{
@@ -121,7 +135,7 @@ font-style: normal;
   padding: 0.75rem 0.50rem;
   max-width: 15rem ;
   margin-left: 20px ;
-  margin-top: 25px;
+  margin-top: 18px;
   justify-content: center;
 }
 
@@ -167,7 +181,22 @@ line-height: 81px;
 display: flex;
 align-items: center;
 
-color: #FFFFFF;
+text-align: center;
+background: linear-gradient(to right, #FFF 10%, #FF0 80%, #FF0 80%, #FFF 0%);
+background-size: 200% auto;
+
+color: #000;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: shine 1s linear infinite;
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 }
 .addbbox button{
     position: absolute;
@@ -229,5 +258,20 @@ font-size: 30px;
 line-height: 81px;
 display: flex;
 align-items: center;
-color: #FFFFFF;
+text-align: center;
+background: linear-gradient(to right, #FFF 20%, #FF0 40%, #FF0 60%, #FFF 20%);
+background-size: 200% auto;
+
+color: #000;
+background-clip: text;
+text-fill-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+animation: shine 1s linear infinite;
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
 }

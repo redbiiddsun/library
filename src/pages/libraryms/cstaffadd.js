@@ -77,9 +77,7 @@ function CstaffAddPage() {
       </Head>
       <main>
         <Navbar />
-
         <span className={styles.currentmem}>Add Staff</span>
-
         <div className={styles.cmcontainer}>
           <Searchbox />
           <div className={styles.searchbox}></div>
