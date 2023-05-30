@@ -178,35 +178,35 @@ export default function Home() {
         </div>
         
         <div className={styles.s0textbox}>
-          <span>neverCum</span>
+          <span>Recent Book Added</span>
         </div>
         <div className={styles.bigbox}>
           <TableComponent data={addedBook} />
         </div>
 
         <div className={styles.s1textbox}>
-          <span>cum1shot</span>
+          <span>Recent Book Request</span>
         </div>
         <div className={styles.bigboxs1}>
           <TableComponentRequestBook data={requestBookDaily} />
         </div>
 
         <div className={styles.s2textbox}>
-          <span>cum2shot</span>
+          <span>Borrow Statistics (Book)</span>
         </div>
         <div className={styles.bigboxs2}>
           <TableComponentBorrowStat data={BorrowStat} />
         </div>
 
         <div className={styles.s3textbox}>
-          <span>cum3shot</span>
+          <span>Borrow Statistics (Member)</span>
         </div>
         <div className={styles.bigboxs3}>
           <TableComponentBorrowStatMember data={borrowStatMember} />
         </div>
 
         <div className={styles.s4textbox}>
-          <span>cum4shot</span>
+          <span>Popular Book Requested</span>
         </div>
         <div className={styles.bigboxs4}>
           <TableComponentReqFreq data={reqFreq} />
